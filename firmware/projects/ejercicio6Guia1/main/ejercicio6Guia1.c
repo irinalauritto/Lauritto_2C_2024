@@ -1,8 +1,9 @@
-/*! @mainpage Template
+/*! @mainpage Guía n° 1 de Electrónica Programable. Ejercicio n°6.
  *
  * @section genDesc General Description
  *
- * This section describes how the program works.
+ * 	Este programa contiene el código  principal para visualizar un 
+ *  número de 3 dígitos en un display utilizando un ESP32.  
  *
  * <a href="https://drive.google.com/...">Operation Example</a>
  *
@@ -19,34 +20,50 @@
  * |:----------:|:-----------------------------------------------|
  * | 15/08/2024 | Creación del ejercicio 6 de l guía 1.          |
  * | 29/08/2024 | Se actualiza ejercicio 6.						 |
+ * | 29/08/2024 | Se actualizan los comentarios y se genera do-  |
+ * |			| -cumentación.									 |
  * 
  * @author Irina E. Lauritto (irina.lauritto@ingenieria.uner.edu.ar)
  *
  */
 
 /*==================[inclusions]=============================================*/
+
+/*! @brief Inclusión de las librerías necesarias para el proyecto. */
 #include <stdio.h>
 #include <stdint.h>
 #include <math.h>
 #include "gpio_mcu.h"
 /*==================[macros and definitions]=================================*/
 
+
 /*==================[internal data definition]===============================*/
+/*! @struct gpioConf_t
+ *  @brief Estructura para configurar los pines GPIO.
+ *  
+ *  @var gpioConf_t::pin
+ *  Número del pin GPIO.
+ *  
+ *  @var gpioConf_t::dir
+ *  Dirección del GPIO: '0' para IN, '1' para OUT.
+ */
 typedef struct
 {
-	gpio_t pin;			/*!< GPIO pin number */
-	io_t dir;			/*!< GPIO direction '0' IN;  '1' OUT*/
+	gpio_t pin;			
+	io_t dir;			
 } gpioConf_t;
+
 /*==================[internal functions declaration]=========================*/
 
-/*! @fn int8_t convertToBcdArray
-*	@brief Esta función escribe un dato de n digitos en un vector de tipo entero.
-* 	@param 
-*	@return
-*/
+/*! @fn int8_t convertToBcdArray(uint32_t data, uint8_t digits, uint8_t * bcdNumber)
+ *  @brief Convierte un número entero en su representación en BCD.
+ *  @param data Número entero con el cual se trabajará.
+ *  @param digits Cantidad de dígitos del número.
+ *  @param bcdNumber Puntero al vector donde se almacenarán los dígitos del mismo.
+ *  @return 1 si la conversión fue exitosa.
+ */
 int8_t  convertToBcdArray (uint32_t data, uint8_t digits, uint8_t * bcdNumber)
 {
-	// en cero centena, en uno decena, en dos unidad
 	for(int i=0; i<digits; i++)
 	{
 		bcdNumber[digits-1-i] = data%10;
@@ -55,11 +72,11 @@ int8_t  convertToBcdArray (uint32_t data, uint8_t digits, uint8_t * bcdNumber)
 	return 1;
 }
 
-/*! @fn
-*	@brief 
-* 	@param
-*	@return
-*/
+/*! @fn void BCDtoPin(gpioConf_t *vector, uint8_t dato)
+ *  @brief Envía un valor en BCD a un conjunto de pines.
+ *  @param vector Puntero a un array de configuraciones de pines GPIO.
+ *  @param dato Valor en BCD a mostrar.
+ */
 void BCDtoPin(gpioConf_t *vector, uint8_t dato){
 	int MASK = 1;
 	for(int i=0; i<sizeof(vector); i++)
@@ -75,11 +92,13 @@ void BCDtoPin(gpioConf_t *vector, uint8_t dato){
 	}
 }
 
-/*! @fn
-*	@brief 
-* 	@param
-*	@return
-*/
+/*! @fn void showNumberInDisplay(uint32_t numero, uint8_t numeroDeDigitos, gpioConf_t *pVectorPines, gpioConf_t *pVectorMUX)
+ *  @brief Muestra un número en el display.
+ *  @param numero Número entero de hasta 3 dígitos a mostrar.
+ *  @param numeroDeDigitos Cantidad de dígitos a mostrar.
+ *  @param pVectorPines Puntero a un array de configuraciones de pines GPIO para el display.
+ *  @param pVectorMUX Puntero a un array de configuraciones de pines GPIO para el multiplexor.
+ */
 void showNumberInDisplay(uint32_t numero, uint8_t numeroDeDigitos, gpioConf_t *pVectorPines, gpioConf_t *pVectorMUX ){
 	uint8_t vectorAuxiliar[3];
 
@@ -92,27 +111,24 @@ void showNumberInDisplay(uint32_t numero, uint8_t numeroDeDigitos, gpioConf_t *p
 		GPIOInit(pVectorMUX[i].pin, pVectorMUX[i].dir);
 	}
 
-	//vectorAuxiliar[0] = 1;
-	//vectorAuxiliar[1] = 2;
-	//vectorAuxiliar[2] = 3;
-
 	for(uint8_t i = 0; i<numeroDeDigitos; i++)
 	{
 		BCDtoPin(pVectorPines, vectorAuxiliar[i]);
+
+		//Se muestran en la consola los valores que se hallan en vectorAuxiliar 
 		printf("%d", vectorAuxiliar[i]);
 		printf("\n");
+
 		GPIOOn(pVectorMUX[i].pin);
 		GPIOOff(pVectorMUX[i].pin);
 	}
-
 }
 /*==================[external functions definition]==========================*/
 
-/*! @fn
-*	@brief
-*   @param
-*	@return 
-*/
+/*! @fn void app_main(void)
+ *  @brief Función principal del programa.
+ *  Inicializa el sistema y muestra un número en el display utilizando los pines GPIO configurados.
+ */
 void app_main(void){
 	uint32_t dato = 123;
 	uint8_t digitos = 3;
@@ -121,6 +137,5 @@ void app_main(void){
 	gpioConf_t vectorMUX[3] = {{GPIO_19, GPIO_OUTPUT},{GPIO_18, GPIO_OUTPUT}, {GPIO_9, GPIO_OUTPUT}};
 
 	showNumberInDisplay(dato, digitos, vectorPIN, vectorMUX);
-
 }
 /*==================[end of file]============================================*/
