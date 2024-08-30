@@ -2,16 +2,22 @@
  *
  * @section genDesc General Description
  *
- * 	Este programa contiene el código  principal para visualizar un 
- *  número de 3 dígitos en un display utilizando un ESP32.  
+ * 	Este programa contiene el código  principal para visualizar un número de 3 dígitos en un display utilizando un ESP32.  
  *
- * <a href="https://drive.google.com/...">Operation Example</a>
  *
  * @section hardConn Hardware Connection
  *
- * |    Peripheral  |   ESP32   	|
+ * |    Peripheral  |    ESP32   	|
  * |:--------------:|:--------------|
- * | 	PIN_X	 	| 	GPIO_X		|
+ * | 	SEL_3	 	| 	 GPIO_9		|
+ * | 	SEL_2	 	| 	GPIO_18		|
+ * | 	SEL_1	 	| 	GPIO_19		|
+ * | 	  D1	 	| 	GPIO_20		|
+ * | 	  D2	 	| 	GPIO_21		|
+ * | 	  D3	 	| 	GPIO_22		|
+ * | 	  D4	 	| 	GPIO_23		|
+ * | 	 +5V	 	| 	  +5V		|
+ * | 	 GND 	 	| 	  GND  		|
  *
  *
  * @section changelog Changelog
@@ -20,8 +26,7 @@
  * |:----------:|:-----------------------------------------------|
  * | 15/08/2024 | Creación del ejercicio 6 de l guía 1.          |
  * | 29/08/2024 | Se actualiza ejercicio 6.						 |
- * | 29/08/2024 | Se actualizan los comentarios y se genera do-  |
- * |			| -cumentación.									 |
+ * | 29/08/2024 | Se actualizan los comentarios y se genera documentación. |
  * 
  * @author Irina E. Lauritto (irina.lauritto@ingenieria.uner.edu.ar)
  *

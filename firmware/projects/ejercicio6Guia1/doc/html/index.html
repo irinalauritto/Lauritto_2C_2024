@@ -34,7 +34,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="fiuner.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Proyecto 1<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">Proyecto 1
    </div>
    <div id="projectbrief">Ejercicio 6 de la guia 1 de Electrónica Programable.</div>
   </td>
@@ -110,17 +110,30 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
 <div class="contents">
 <div class="textblock"><h1><a class="anchor" id="genDesc"></a>
 General Description</h1>
-<pre class="fragment">Este programa contiene el código  principal para visualizar un 
-</pre><p> número de 3 dígitos en un display utilizando un ESP32. <br  />
-</p>
-<p><a href="https://drive.google.com/...">Operation Example</a></p>
-<h1><a class="anchor" id="hardConn"></a>
+<pre class="fragment">Este programa contiene el código  principal para visualizar un número de 3 dígitos en un display utilizando un ESP32.  
+</pre><h1><a class="anchor" id="hardConn"></a>
 Hardware Connection</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadCenter">Peripheral   </th><th class="markdownTableHeadLeft">ESP32    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">PIN_X   </td><td class="markdownTableBodyLeft">GPIO_X   </td></tr>
+<td class="markdownTableBodyCenter">SEL_3   </td><td class="markdownTableBodyLeft">GPIO_9    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">SEL_2   </td><td class="markdownTableBodyLeft">GPIO_18    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">SEL_1   </td><td class="markdownTableBodyLeft">GPIO_19    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">D1   </td><td class="markdownTableBodyLeft">GPIO_20    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">D2   </td><td class="markdownTableBodyLeft">GPIO_21    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">D3   </td><td class="markdownTableBodyLeft">GPIO_22    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">D4   </td><td class="markdownTableBodyLeft">GPIO_23    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">+5V   </td><td class="markdownTableBodyLeft">+5V    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">GND   </td><td class="markdownTableBodyLeft">GND   </td></tr>
 </table>
 <h1><a class="anchor" id="changelog"></a>
 Changelog</h1>
@@ -132,9 +145,7 @@ Changelog</h1>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyCenter">29/08/2024   </td><td class="markdownTableBodyLeft">Se actualiza ejercicio 6.    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">29/08/2024   </td><td class="markdownTableBodyLeft">Se actualizan los comentarios y se genera do-    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter"></td><td class="markdownTableBodyLeft">-cumentación.   </td></tr>
+<td class="markdownTableBodyCenter">29/08/2024   </td><td class="markdownTableBodyLeft">Se actualizan los comentarios y se genera documentación.   </td></tr>
 </table>
 <dl class="section author"><dt>Autor</dt><dd>Irina E. Lauritto (<a href="#" onclick="location.href='mai'+'lto:'+'iri'+'na'+'.la'+'ur'+'itt'+'o@'+'ing'+'en'+'ier'+'ia'+'.un'+'er'+'.ed'+'u.'+'ar'; return false;">irina<span class="obfuscator">.nosp@m.</span>.lau<span class="obfuscator">.nosp@m.</span>ritto<span class="obfuscator">.nosp@m.</span>@ing<span class="obfuscator">.nosp@m.</span>enier<span class="obfuscator">.nosp@m.</span>ia.u<span class="obfuscator">.nosp@m.</span>ner.e<span class="obfuscator">.nosp@m.</span>du.a<span class="obfuscator">.nosp@m.</span>r</a>) </dd></dl>
 </div></div><!-- PageDoc -->
