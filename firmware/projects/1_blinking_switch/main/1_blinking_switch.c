@@ -57,12 +57,9 @@ void app_main(void){
 				vTaskDelay(CONFIG_BLINK_PERIOD_LED3 / portTICK_PERIOD_MS);
     		break;
 
-			//Debería apagar los LEDs, al igual que las lineas 45, 51, y 57. No lo hace.
 			case (~SWITCH_1)|(~SWITCH_2):
-				LedOff(LED_1 & LED_2 & LED_3);
+				LedsOffAll;
     		break;
     	}
-	    //LedToggle(LED_3);
-		//vTaskDelay(CONFIG_BLINK_PERIOD / portTICK_PERIOD_MS);
 	}
 }
