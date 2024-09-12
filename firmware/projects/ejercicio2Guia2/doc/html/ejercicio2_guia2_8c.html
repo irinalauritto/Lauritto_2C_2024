@@ -1,0 +1,505 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.11.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Ejercicio 2 - Guia 2: Referencia del archivo C:/Repositorios/Lauritto_2C_2024/firmware/projects/ejercicio2Guia2/main/ejercicio2Guia2.c</title>
+<link rel="icon" href="icon.ico" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="fiuner.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Ejercicio 2 - Guia 2<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Ejercicio 2 de la guia de proyecto 2 de Electrónica Programable.</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.11.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('ejercicio2_guia2_8c.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">defines</a> &#124;
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Referencia del archivo ejercicio2Guia2.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="hc__sr04_8h_source.html">hc_sr04.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lcditse0803_8h_source.html">lcditse0803.h</a>&quot;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &quot;freertos/FreeRTOS.h&quot;</code><br />
+<code>#include &quot;freertos/task.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="led_8h_source.html">led.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="switch_8h_source.html">switch.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="timer__mcu_8h_source.html">timer_mcu.h</a>&quot;</code><br />
+</div>
+<p><a href="ejercicio2_guia2_8c_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:a6bb43a3555a59e5d44355823c8c621dd" id="r_a6bb43a3555a59e5d44355823c8c621dd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6bb43a3555a59e5d44355823c8c621dd">RETARDO_EN_MEDICION</a>&#160;&#160;&#160;100000</td></tr>
+<tr class="memdesc:a6bb43a3555a59e5d44355823c8c621dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inclusión de librerías.  <br /></td></tr>
+<tr class="separator:a6bb43a3555a59e5d44355823c8c621dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3245a45b0cf0e330797018db587d05a3" id="r_a3245a45b0cf0e330797018db587d05a3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3245a45b0cf0e330797018db587d05a3">RETARDO_EN_MOSTRAR</a>&#160;&#160;&#160;50000</td></tr>
+<tr class="memdesc:a3245a45b0cf0e330797018db587d05a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define el retardo entre actualizaciones de pantalla y LEDs (en microsegundos).  <br /></td></tr>
+<tr class="separator:a3245a45b0cf0e330797018db587d05a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:af5fc8b3c00c24706259c68657f69b2e2" id="r_af5fc8b3c00c24706259c68657f69b2e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af5fc8b3c00c24706259c68657f69b2e2">funcTimerMedir</a> (void *param)</td></tr>
+<tr class="memdesc:af5fc8b3c00c24706259c68657f69b2e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función de interrupción para el timer que activa la tarea de medición.  <br /></td></tr>
+<tr class="separator:af5fc8b3c00c24706259c68657f69b2e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f7118ef51304cd7a810eaac74f53252" id="r_a5f7118ef51304cd7a810eaac74f53252"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f7118ef51304cd7a810eaac74f53252">funcTimerMostrar</a> (void *param)</td></tr>
+<tr class="memdesc:a5f7118ef51304cd7a810eaac74f53252"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función de interrupción para el timer que activa la tarea de mostrar la medición.  <br /></td></tr>
+<tr class="separator:a5f7118ef51304cd7a810eaac74f53252"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae934e4d7471df37115d443b24eaa5c06" id="r_ae934e4d7471df37115d443b24eaa5c06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae934e4d7471df37115d443b24eaa5c06">manejarLEDS</a> (uint16_t dato)</td></tr>
+<tr class="memdesc:ae934e4d7471df37115d443b24eaa5c06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función que controla el encendido y apagado de los LEDs según la distancia medida.  <br /></td></tr>
+<tr class="separator:ae934e4d7471df37115d443b24eaa5c06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af169e21551d7ded49edbe0a21188076c" id="r_af169e21551d7ded49edbe0a21188076c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af169e21551d7ded49edbe0a21188076c">controlInterrupcionSwitch1</a> ()</td></tr>
+<tr class="memdesc:af169e21551d7ded49edbe0a21188076c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función de interrupción para la tecla 1 (TEC1).  <br /></td></tr>
+<tr class="separator:af169e21551d7ded49edbe0a21188076c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1aea8bda71162facc23f41ae61381f1f" id="r_a1aea8bda71162facc23f41ae61381f1f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1aea8bda71162facc23f41ae61381f1f">controlInterrupcionSwitch2</a> ()</td></tr>
+<tr class="memdesc:a1aea8bda71162facc23f41ae61381f1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función de interrupción para la tecla 2 (TEC2).  <br /></td></tr>
+<tr class="separator:a1aea8bda71162facc23f41ae61381f1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a630544a7f0a2cc40d8a7fefab7e2fe70" id="r_a630544a7f0a2cc40d8a7fefab7e2fe70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a630544a7f0a2cc40d8a7fefab7e2fe70">app_main</a> (void)</td></tr>
+<tr class="memdesc:a630544a7f0a2cc40d8a7fefab7e2fe70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función principal del programa.  <br /></td></tr>
+<tr class="separator:a630544a7f0a2cc40d8a7fefab7e2fe70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a4c1eb594b9229430acfca622788009ec" id="r_a4c1eb594b9229430acfca622788009ec"><td class="memItemLeft" align="right" valign="top">TaskHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c1eb594b9229430acfca622788009ec">medirTaskHandle</a> = <a class="el" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td></tr>
+<tr class="memdesc:a4c1eb594b9229430acfca622788009ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle para la tarea de medir distancia.  <br /></td></tr>
+<tr class="separator:a4c1eb594b9229430acfca622788009ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc6305f4187ddb72f4c301209d9e2d29" id="r_afc6305f4187ddb72f4c301209d9e2d29"><td class="memItemLeft" align="right" valign="top">TaskHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc6305f4187ddb72f4c301209d9e2d29">mostrarMedicionTaskHandle</a> = <a class="el" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td></tr>
+<tr class="memdesc:afc6305f4187ddb72f4c301209d9e2d29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle para la tarea de mostrar la medición.  <br /></td></tr>
+<tr class="separator:afc6305f4187ddb72f4c301209d9e2d29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec40b15ff3098bdb2425eb4dc9c11a18" id="r_aec40b15ff3098bdb2425eb4dc9c11a18"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec40b15ff3098bdb2425eb4dc9c11a18">distancia</a></td></tr>
+<tr class="memdesc:aec40b15ff3098bdb2425eb4dc9c11a18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable que almacena la distancia medida en centímetros.  <br /></td></tr>
+<tr class="separator:aec40b15ff3098bdb2425eb4dc9c11a18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd9981195bc69eb55ea840b3c45b572c" id="r_afd9981195bc69eb55ea840b3c45b572c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd9981195bc69eb55ea840b3c45b572c">ENCENDIDO</a> = 0</td></tr>
+<tr class="memdesc:afd9981195bc69eb55ea840b3c45b572c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bandera que indica si el sistema de medición está encendido o apagado.  <br /></td></tr>
+<tr class="separator:afd9981195bc69eb55ea840b3c45b572c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc247b5bf8f971ed6ea450caf1c76e37" id="r_afc247b5bf8f971ed6ea450caf1c76e37"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc247b5bf8f971ed6ea450caf1c76e37">HOLD</a> = 1</td></tr>
+<tr class="memdesc:afc247b5bf8f971ed6ea450caf1c76e37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bandera que indica si se debe mantener el valor de la medición en pantalla.  <br /></td></tr>
+<tr class="separator:afc247b5bf8f971ed6ea450caf1c76e37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentación de «define»</h2>
+<a id="a6bb43a3555a59e5d44355823c8c621dd" name="a6bb43a3555a59e5d44355823c8c621dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bb43a3555a59e5d44355823c8c621dd">&#9670;&#160;</a></span>RETARDO_EN_MEDICION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RETARDO_EN_MEDICION&#160;&#160;&#160;100000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inclusión de librerías. </p>
+<p>Define el retardo entre mediciones de distancia (en microsegundos). </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ejercicio2_guia2_8c_source.html#l00047">47</a> del archivo <a class="el" href="ejercicio2_guia2_8c_source.html">ejercicio2Guia2.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ejercicio2_guia2_8c_source.html#l00205">app_main()</a>.</p>
+
+</div>
+</div>
+<a id="a3245a45b0cf0e330797018db587d05a3" name="a3245a45b0cf0e330797018db587d05a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3245a45b0cf0e330797018db587d05a3">&#9670;&#160;</a></span>RETARDO_EN_MOSTRAR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RETARDO_EN_MOSTRAR&#160;&#160;&#160;50000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define el retardo entre actualizaciones de pantalla y LEDs (en microsegundos). </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ejercicio2_guia2_8c_source.html#l00050">50</a> del archivo <a class="el" href="ejercicio2_guia2_8c_source.html">ejercicio2Guia2.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ejercicio2_guia2_8c_source.html#l00205">app_main()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de funciones</h2>
+<a id="a630544a7f0a2cc40d8a7fefab7e2fe70" name="a630544a7f0a2cc40d8a7fefab7e2fe70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a630544a7f0a2cc40d8a7fefab7e2fe70">&#9670;&#160;</a></span>app_main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void app_main </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función principal del programa. </p>
+<p>Inicializa el hardware (LEDs, teclas, sensor HC-SR04 y pantalla LCD) y crea las tareas de FreeRTOS para medir la distancia, detectar teclas y mostrar la medición. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ejercicio2_guia2_8c_source.html#l00205">205</a> del archivo <a class="el" href="ejercicio2_guia2_8c_source.html">ejercicio2Guia2.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ejercicio2_guia2_8c_source.html#l00184">controlInterrupcionSwitch1()</a>, <a class="el" href="ejercicio2_guia2_8c_source.html#l00193">controlInterrupcionSwitch2()</a>, <a class="el" href="ejercicio2_guia2_8c_source.html#l00076">funcTimerMedir()</a>, <a class="el" href="ejercicio2_guia2_8c_source.html#l00087">funcTimerMostrar()</a>, <a class="el" href="gpio__mcu_8h_source.html#l00054">GPIO_2</a>, <a class="el" href="gpio__mcu_8h_source.html#l00055">GPIO_3</a>, <a class="el" href="hc__sr04_8c_source.html#l00034">HcSr04Init()</a>, <a class="el" href="lcditse0803_8c_source.html#l00037">LcdItsE0803Init()</a>, <a class="el" href="led_8c_source.html#l00031">LedsInit()</a>, <a class="el" href="ejercicio2_guia2_8c_source.html#l00054">medirTaskHandle</a>, <a class="el" href="ejercicio2_guia2_8c_source.html#l00057">mostrarMedicionTaskHandle</a>, <a class="el" href="ili9341_8c_source.html#l00019">NULL</a>, <a class="el" href="ejercicio2_guia2_8c_source.html#l00047">RETARDO_EN_MEDICION</a>, <a class="el" href="ejercicio2_guia2_8c_source.html#l00050">RETARDO_EN_MOSTRAR</a>, <a class="el" href="switch_8h_source.html#l00032">SWITCH_1</a>, <a class="el" href="switch_8h_source.html#l00033">SWITCH_2</a>, <a class="el" href="switch_8c_source.html#l00047">SwitchActivInt()</a>, <a class="el" href="switch_8c_source.html#l00029">SwitchesInit()</a>, <a class="el" href="timer__mcu_8h_source.html#l00040">timer_config_t::timer</a>, <a class="el" href="timer__mcu_8h_source.html#l00032">TIMER_A</a>, <a class="el" href="timer__mcu_8h_source.html#l00033">TIMER_B</a>, <a class="el" href="timer__mcu_8c_source.html#l00067">TimerInit()</a> y <a class="el" href="timer__mcu_8c_source.html#l00116">TimerStart()</a>.</p>
+
+</div>
+</div>
+<a id="af169e21551d7ded49edbe0a21188076c" name="af169e21551d7ded49edbe0a21188076c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af169e21551d7ded49edbe0a21188076c">&#9670;&#160;</a></span>controlInterrupcionSwitch1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void controlInterrupcionSwitch1 </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función de interrupción para la tecla 1 (TEC1). </p>
+<p>Esta función alterna la bandera <code>ENCENDIDO</code>, que controla si el sistema de medición está activado o no. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ejercicio2_guia2_8c_source.html#l00184">184</a> del archivo <a class="el" href="ejercicio2_guia2_8c_source.html">ejercicio2Guia2.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ejercicio2_guia2_8c_source.html#l00063">ENCENDIDO</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ejercicio2_guia2_8c_source.html#l00205">app_main()</a>.</p>
+
+</div>
+</div>
+<a id="a1aea8bda71162facc23f41ae61381f1f" name="a1aea8bda71162facc23f41ae61381f1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1aea8bda71162facc23f41ae61381f1f">&#9670;&#160;</a></span>controlInterrupcionSwitch2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void controlInterrupcionSwitch2 </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función de interrupción para la tecla 2 (TEC2). </p>
+<p>Esta función alterna la bandera <code>HOLD</code>, que controla si se debe mantener el valor de la medición en pantalla. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ejercicio2_guia2_8c_source.html#l00193">193</a> del archivo <a class="el" href="ejercicio2_guia2_8c_source.html">ejercicio2Guia2.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ejercicio2_guia2_8c_source.html#l00066">HOLD</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ejercicio2_guia2_8c_source.html#l00205">app_main()</a>.</p>
+
+</div>
+</div>
+<a id="af5fc8b3c00c24706259c68657f69b2e2" name="af5fc8b3c00c24706259c68657f69b2e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5fc8b3c00c24706259c68657f69b2e2">&#9670;&#160;</a></span>funcTimerMedir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void funcTimerMedir </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>param</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función de interrupción para el timer que activa la tarea de medición. </p>
+<p>Utiliza la función <code>vTaskNotifyGiveFromISR()</code> para notificar a la tarea de medición que debe ejecutarse.</p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">param</td><td>Parámetro de la función, no utilizado en este caso. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="ejercicio2_guia2_8c_source.html#l00076">76</a> del archivo <a class="el" href="ejercicio2_guia2_8c_source.html">ejercicio2Guia2.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ejercicio2_guia2_8c_source.html#l00054">medirTaskHandle</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ejercicio2_guia2_8c_source.html#l00205">app_main()</a>.</p>
+
+</div>
+</div>
+<a id="a5f7118ef51304cd7a810eaac74f53252" name="a5f7118ef51304cd7a810eaac74f53252"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f7118ef51304cd7a810eaac74f53252">&#9670;&#160;</a></span>funcTimerMostrar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void funcTimerMostrar </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>param</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función de interrupción para el timer que activa la tarea de mostrar la medición. </p>
+<p>Utiliza la función <code>vTaskNotifyGiveFromISR()</code> para notificar a la tarea de mostrar que debe ejecutarse.</p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">param</td><td>Parámetro de la función, no utilizado en este caso. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="ejercicio2_guia2_8c_source.html#l00087">87</a> del archivo <a class="el" href="ejercicio2_guia2_8c_source.html">ejercicio2Guia2.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ejercicio2_guia2_8c_source.html#l00057">mostrarMedicionTaskHandle</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ejercicio2_guia2_8c_source.html#l00205">app_main()</a>.</p>
+
+</div>
+</div>
+<a id="ae934e4d7471df37115d443b24eaa5c06" name="ae934e4d7471df37115d443b24eaa5c06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae934e4d7471df37115d443b24eaa5c06">&#9670;&#160;</a></span>manejarLEDS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void manejarLEDS </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>dato</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función que controla el encendido y apagado de los LEDs según la distancia medida. </p>
+<p>Enciende y apaga los LEDs de acuerdo a los siguientes rangos de distancia:</p><ul>
+<li>Menor a 10 cm: Apaga todos los LEDs.</li>
+<li>Entre 10 y 20 cm: Enciende LED_1.</li>
+<li>Entre 20 y 30 cm: Enciende LED_1 y LED_2.</li>
+<li>Mayor a 30 cm: Enciende LED_1, LED_2 y LED_3.</li>
+</ul>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dato</td><td>Distancia medida en centímetros. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="ejercicio2_guia2_8c_source.html#l00120">120</a> del archivo <a class="el" href="ejercicio2_guia2_8c_source.html">ejercicio2Guia2.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="ejercicio2_guia2_8c_source.html#l00060">distancia</a>, <a class="el" href="led_8h_source.html#l00034">LED_1</a>, <a class="el" href="led_8h_source.html#l00033">LED_2</a>, <a class="el" href="led_8h_source.html#l00032">LED_3</a>, <a class="el" href="led_8c_source.html#l00065">LedOff()</a>, <a class="el" href="led_8c_source.html#l00046">LedOn()</a> y <a class="el" href="led_8c_source.html#l00105">LedsOffAll()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de variables</h2>
+<a id="aec40b15ff3098bdb2425eb4dc9c11a18" name="aec40b15ff3098bdb2425eb4dc9c11a18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec40b15ff3098bdb2425eb4dc9c11a18">&#9670;&#160;</a></span>distancia</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t distancia</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Variable que almacena la distancia medida en centímetros. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ejercicio2_guia2_8c_source.html#l00060">60</a> del archivo <a class="el" href="ejercicio2_guia2_8c_source.html">ejercicio2Guia2.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ejercicio2_guia2_8c_source.html#l00120">manejarLEDS()</a>.</p>
+
+</div>
+</div>
+<a id="afd9981195bc69eb55ea840b3c45b572c" name="afd9981195bc69eb55ea840b3c45b572c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd9981195bc69eb55ea840b3c45b572c">&#9670;&#160;</a></span>ENCENDIDO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ENCENDIDO = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Bandera que indica si el sistema de medición está encendido o apagado. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ejercicio2_guia2_8c_source.html#l00063">63</a> del archivo <a class="el" href="ejercicio2_guia2_8c_source.html">ejercicio2Guia2.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ejercicio2_guia2_8c_source.html#l00184">controlInterrupcionSwitch1()</a>.</p>
+
+</div>
+</div>
+<a id="afc247b5bf8f971ed6ea450caf1c76e37" name="afc247b5bf8f971ed6ea450caf1c76e37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc247b5bf8f971ed6ea450caf1c76e37">&#9670;&#160;</a></span>HOLD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool HOLD = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Bandera que indica si se debe mantener el valor de la medición en pantalla. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ejercicio2_guia2_8c_source.html#l00066">66</a> del archivo <a class="el" href="ejercicio2_guia2_8c_source.html">ejercicio2Guia2.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ejercicio2_guia2_8c_source.html#l00193">controlInterrupcionSwitch2()</a>.</p>
+
+</div>
+</div>
+<a id="a4c1eb594b9229430acfca622788009ec" name="a4c1eb594b9229430acfca622788009ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c1eb594b9229430acfca622788009ec">&#9670;&#160;</a></span>medirTaskHandle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TaskHandle_t medirTaskHandle = <a class="el" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handle para la tarea de medir distancia. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ejercicio2_guia2_8c_source.html#l00054">54</a> del archivo <a class="el" href="ejercicio2_guia2_8c_source.html">ejercicio2Guia2.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ejercicio2_guia2_8c_source.html#l00205">app_main()</a> y <a class="el" href="ejercicio2_guia2_8c_source.html#l00076">funcTimerMedir()</a>.</p>
+
+</div>
+</div>
+<a id="afc6305f4187ddb72f4c301209d9e2d29" name="afc6305f4187ddb72f4c301209d9e2d29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc6305f4187ddb72f4c301209d9e2d29">&#9670;&#160;</a></span>mostrarMedicionTaskHandle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TaskHandle_t mostrarMedicionTaskHandle = <a class="el" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handle para la tarea de mostrar la medición. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="ejercicio2_guia2_8c_source.html#l00057">57</a> del archivo <a class="el" href="ejercicio2_guia2_8c_source.html">ejercicio2Guia2.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="ejercicio2_guia2_8c_source.html#l00205">app_main()</a> y <a class="el" href="ejercicio2_guia2_8c_source.html#l00087">funcTimerMostrar()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d9edf6c004b4a7ff14fe9ae7a92214ee.html">firmware</a></li><li class="navelem"><a class="el" href="dir_429d80758da54da73083af4edd40d0b3.html">projects</a></li><li class="navelem"><a class="el" href="dir_c8a9fd101c44523c83e248ce979354ed.html">ejercicio2Guia2</a></li><li class="navelem"><a class="el" href="dir_4132590565746877c9fd03932a0b2b24.html">main</a></li><li class="navelem"><a class="el" href="ejercicio2_guia2_8c.html">ejercicio2Guia2.c</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0 </li>
+  </ul>
+</div>
+</body>
+</html>
