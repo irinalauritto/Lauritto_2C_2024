@@ -9,6 +9,5 @@ var ejercicio4_guia2_8c =
     [ "conversionADTaskHandle", "ejercicio4_guia2_8c.html#a8f92373fef8caa641fbcd41e23898b48", null ],
     [ "conversionDATaskHandle", "ejercicio4_guia2_8c.html#a2292f6ad7a64610d9b284410eb4eda2d", null ],
     [ "datoConversionAD", "ejercicio4_guia2_8c.html#afd8cf86071a8670bee2c5405054f721f", null ],
-    [ "ecg", "ejercicio4_guia2_8c.html#a2dafb8b8179af8e9f4cc4df3f588e42e", null ],
-    [ "i", "ejercicio4_guia2_8c.html#af27e3188294c2df66d975b74a09c001d", null ]
+    [ "ecg", "ejercicio4_guia2_8c.html#a2dafb8b8179af8e9f4cc4df3f588e42e", null ]
 ];

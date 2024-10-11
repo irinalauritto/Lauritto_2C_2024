@@ -1,4 +1,4 @@
-/*! @mainpage ejercicio2Guia2
+/*! @mainpage ejercicio3Guia2
  *
  * @section genDesc General Description
  * 

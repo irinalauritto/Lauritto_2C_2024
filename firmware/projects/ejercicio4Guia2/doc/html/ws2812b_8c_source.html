@@ -36,7 +36,7 @@
   <td id="projectalign">
    <div id="projectname">Ejercicio 4 - Guia 2<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">Ejercicio 4 de la guia de proyecto 2 de Electrónica Programable.</div>
+   <div id="projectbrief">Ejercicio 4  de la guia de proyecto 2 de Electrónica Programable.</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -447,10 +447,10 @@ $(function(){initNavTree('ws2812b_8c_source.html',''); initResizable(true); });
 <div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span> </div>
 <div class="foldopen" id="foldopen00340" data-start="{" data-end="}">
 <div class="line"><a id="l00340" name="l00340"></a><span class="lineno"><a class="line" href="group___w_s2812_b.html#ga6efc852be97e10768f170756c0bde024">  340</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="group___w_s2812_b.html#ga6efc852be97e10768f170756c0bde024">ws2812bSend</a>(<a class="code hl_struct" href="structrgb__led.html">rgb_led_t</a> led_color){</div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>    uint8_t <a class="code hl_variable" href="ejercicio4_guia2_8c.html#af27e3188294c2df66d975b74a09c001d">i</a>;</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>    uint8_t i;</div>
 <div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>    <span class="comment">// Blue</span></div>
-<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>    <span class="keywordflow">for</span>(<a class="code hl_variable" href="ejercicio4_guia2_8c.html#af27e3188294c2df66d975b74a09c001d">i</a>=0; <a class="code hl_variable" href="ejercicio4_guia2_8c.html#af27e3188294c2df66d975b74a09c001d">i</a>&lt;=7; <a class="code hl_variable" href="ejercicio4_guia2_8c.html#af27e3188294c2df66d975b74a09c001d">i</a>++){</div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>        <span class="keywordflow">if</span>(<a class="code hl_function" href="ws2812b_8c.html#af8b5a67621f64a435602bdfeca85d8c3">ws2812bGammaCorrection</a>(led_color.<a class="code hl_variable" href="structrgb__led.html#a90d21fa503b626c00cdc8d94863d5877">green</a>) &amp; (<a class="code hl_define" href="ws2812b_8c.html#a4ad58adf84157aebea2a98cc9402212a">BIT_7</a>&gt;&gt;<a class="code hl_variable" href="ejercicio4_guia2_8c.html#af27e3188294c2df66d975b74a09c001d">i</a>)){</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>    <span class="keywordflow">for</span>(i=0; i&lt;=7; i++){</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>        <span class="keywordflow">if</span>(<a class="code hl_function" href="ws2812b_8c.html#af8b5a67621f64a435602bdfeca85d8c3">ws2812bGammaCorrection</a>(led_color.<a class="code hl_variable" href="structrgb__led.html#a90d21fa503b626c00cdc8d94863d5877">green</a>) &amp; (<a class="code hl_define" href="ws2812b_8c.html#a4ad58adf84157aebea2a98cc9402212a">BIT_7</a>&gt;&gt;i)){</div>
 <div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>            <a class="code hl_function" href="ws2812b_8c.html#a77b8715bc283e04108cbecdf72e24b7d">ws2812bSendHigh</a>(<a class="code hl_variable" href="ws2812b_8c.html#a8bafab9eba59f18ef73103a6ec526585">pin_number</a>);</div>
 <div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>        }</div>
 <div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>        <span class="keywordflow">else</span>{</div>
@@ -458,8 +458,8 @@ $(function(){initNavTree('ws2812b_8c_source.html',''); initResizable(true); });
 <div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>        }</div>
 <div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>    }</div>
 <div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>    <span class="comment">// Red</span></div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>    <span class="keywordflow">for</span>(<a class="code hl_variable" href="ejercicio4_guia2_8c.html#af27e3188294c2df66d975b74a09c001d">i</a>=0; <a class="code hl_variable" href="ejercicio4_guia2_8c.html#af27e3188294c2df66d975b74a09c001d">i</a>&lt;=7; <a class="code hl_variable" href="ejercicio4_guia2_8c.html#af27e3188294c2df66d975b74a09c001d">i</a>++){</div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>        <span class="keywordflow">if</span>(<a class="code hl_function" href="ws2812b_8c.html#af8b5a67621f64a435602bdfeca85d8c3">ws2812bGammaCorrection</a>(led_color.<a class="code hl_variable" href="structrgb__led.html#ad47d918910aaa51c73160ac85999d09c">red</a>) &amp; (<a class="code hl_define" href="ws2812b_8c.html#a4ad58adf84157aebea2a98cc9402212a">BIT_7</a>&gt;&gt;<a class="code hl_variable" href="ejercicio4_guia2_8c.html#af27e3188294c2df66d975b74a09c001d">i</a>)){</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>    <span class="keywordflow">for</span>(i=0; i&lt;=7; i++){</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>        <span class="keywordflow">if</span>(<a class="code hl_function" href="ws2812b_8c.html#af8b5a67621f64a435602bdfeca85d8c3">ws2812bGammaCorrection</a>(led_color.<a class="code hl_variable" href="structrgb__led.html#ad47d918910aaa51c73160ac85999d09c">red</a>) &amp; (<a class="code hl_define" href="ws2812b_8c.html#a4ad58adf84157aebea2a98cc9402212a">BIT_7</a>&gt;&gt;i)){</div>
 <div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>            <a class="code hl_function" href="ws2812b_8c.html#a77b8715bc283e04108cbecdf72e24b7d">ws2812bSendHigh</a>(<a class="code hl_variable" href="ws2812b_8c.html#a8bafab9eba59f18ef73103a6ec526585">pin_number</a>);</div>
 <div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>        }</div>
 <div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>        <span class="keywordflow">else</span>{</div>
@@ -467,8 +467,8 @@ $(function(){initNavTree('ws2812b_8c_source.html',''); initResizable(true); });
 <div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>        }</div>
 <div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>    }</div>
 <div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>    <span class="comment">// Green</span></div>
-<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>    <span class="keywordflow">for</span>(<a class="code hl_variable" href="ejercicio4_guia2_8c.html#af27e3188294c2df66d975b74a09c001d">i</a>=0; <a class="code hl_variable" href="ejercicio4_guia2_8c.html#af27e3188294c2df66d975b74a09c001d">i</a>&lt;=7; <a class="code hl_variable" href="ejercicio4_guia2_8c.html#af27e3188294c2df66d975b74a09c001d">i</a>++){</div>
-<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>        <span class="keywordflow">if</span>(<a class="code hl_function" href="ws2812b_8c.html#af8b5a67621f64a435602bdfeca85d8c3">ws2812bGammaCorrection</a>(led_color.<a class="code hl_variable" href="structrgb__led.html#a287b397e90d7b995c81ff54e741f96b2">blue</a>) &amp; (<a class="code hl_define" href="ws2812b_8c.html#a4ad58adf84157aebea2a98cc9402212a">BIT_7</a>&gt;&gt;<a class="code hl_variable" href="ejercicio4_guia2_8c.html#af27e3188294c2df66d975b74a09c001d">i</a>)){</div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>    <span class="keywordflow">for</span>(i=0; i&lt;=7; i++){</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>        <span class="keywordflow">if</span>(<a class="code hl_function" href="ws2812b_8c.html#af8b5a67621f64a435602bdfeca85d8c3">ws2812bGammaCorrection</a>(led_color.<a class="code hl_variable" href="structrgb__led.html#a287b397e90d7b995c81ff54e741f96b2">blue</a>) &amp; (<a class="code hl_define" href="ws2812b_8c.html#a4ad58adf84157aebea2a98cc9402212a">BIT_7</a>&gt;&gt;i)){</div>
 <div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>            <a class="code hl_function" href="ws2812b_8c.html#a77b8715bc283e04108cbecdf72e24b7d">ws2812bSendHigh</a>(<a class="code hl_variable" href="ws2812b_8c.html#a8bafab9eba59f18ef73103a6ec526585">pin_number</a>);</div>
 <div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>        }</div>
 <div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>        <span class="keywordflow">else</span>{</div>
@@ -487,7 +487,6 @@ $(function(){initNavTree('ws2812b_8c_source.html',''); initResizable(true); });
 <div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span> </div>
 <div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span><span class="comment">/*==================[end of file]============================================*/</span></div>
 <div class="ttc" id="adelay__mcu_8h_html"><div class="ttname"><a href="delay__mcu_8h.html">delay_mcu.h</a></div></div>
-<div class="ttc" id="aejercicio4_guia2_8c_html_af27e3188294c2df66d975b74a09c001d"><div class="ttname"><a href="ejercicio4_guia2_8c.html#af27e3188294c2df66d975b74a09c001d">i</a></div><div class="ttdeci">uint8_t i</div><div class="ttdoc">Índice para recorrer el buffer de la señal ECG.</div><div class="ttdef"><b>Definition</b> <a href="ejercicio4_guia2_8c_source.html#l00061">ejercicio4Guia2.c:61</a></div></div>
 <div class="ttc" id="agpio__fast__out__mcu_8h_html"><div class="ttname"><a href="gpio__fast__out__mcu_8h.html">gpio_fast_out_mcu.h</a></div></div>
 <div class="ttc" id="agpio__mcu_8h_html"><div class="ttname"><a href="gpio__mcu_8h.html">gpio_mcu.h</a></div></div>
 <div class="ttc" id="agroup___delay_html_ga92e1b2564bacd20071bcd06b697f52f8"><div class="ttname"><a href="group___delay.html#ga92e1b2564bacd20071bcd06b697f52f8">DelayUs</a></div><div class="ttdeci">void DelayUs(uint16_t usec)</div><div class="ttdoc">Delay in microseconds.</div><div class="ttdef"><b>Definition</b> <a href="delay__mcu_8c_source.html#l00079">delay_mcu.c:79</a></div></div>

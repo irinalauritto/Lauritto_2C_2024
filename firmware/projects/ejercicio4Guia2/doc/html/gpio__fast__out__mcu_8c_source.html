@@ -36,7 +36,7 @@
   <td id="projectalign">
    <div id="projectname">Ejercicio 4 - Guia 2<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">Ejercicio 4 de la guia de proyecto 2 de Electrónica Programable.</div>
+   <div id="projectbrief">Ejercicio 4  de la guia de proyecto 2 de Electrónica Programable.</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -137,8 +137,8 @@ $(function(){initNavTree('gpio__fast__out__mcu_8c_source.html',''); initResizabl
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    gpio_config_t io_conf = {</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        .mode = GPIO_MODE_OUTPUT,</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    };</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code hl_variable" href="ejercicio4_guia2_8c.html#af27e3188294c2df66d975b74a09c001d">i</a> = 0; <a class="code hl_variable" href="ejercicio4_guia2_8c.html#af27e3188294c2df66d975b74a09c001d">i</a> &lt; pin_qty; <a class="code hl_variable" href="ejercicio4_guia2_8c.html#af27e3188294c2df66d975b74a09c001d">i</a>++) {</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        io_conf.pin_bit_mask = 1ULL &lt;&lt; <a class="code hl_variable" href="gpio__fast__out__mcu_8c.html#a618b0d089ac040bd855239d414877886">bundleA_gpios</a>[<a class="code hl_variable" href="ejercicio4_guia2_8c.html#af27e3188294c2df66d975b74a09c001d">i</a>];</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; pin_qty; i++) {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        io_conf.pin_bit_mask = 1ULL &lt;&lt; <a class="code hl_variable" href="gpio__fast__out__mcu_8c.html#a618b0d089ac040bd855239d414877886">bundleA_gpios</a>[i];</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        gpio_config(&amp;io_conf);</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    }</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="comment">// Create bundleA, output only</span></div>
@@ -160,7 +160,6 @@ $(function(){initNavTree('gpio__fast__out__mcu_8c_source.html',''); initResizabl
 </div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">/*==================[end of file]============================================*/</span></div>
-<div class="ttc" id="aejercicio4_guia2_8c_html_af27e3188294c2df66d975b74a09c001d"><div class="ttname"><a href="ejercicio4_guia2_8c.html#af27e3188294c2df66d975b74a09c001d">i</a></div><div class="ttdeci">uint8_t i</div><div class="ttdoc">Índice para recorrer el buffer de la señal ECG.</div><div class="ttdef"><b>Definition</b> <a href="ejercicio4_guia2_8c_source.html#l00061">ejercicio4Guia2.c:61</a></div></div>
 <div class="ttc" id="agpio__fast__out__mcu_8c_html_a49b3a59d5cb43369da07eeec78bdeb78"><div class="ttname"><a href="gpio__fast__out__mcu_8c.html#a49b3a59d5cb43369da07eeec78bdeb78">bundleA</a></div><div class="ttdeci">dedic_gpio_bundle_handle_t bundleA</div><div class="ttdef"><b>Definition</b> <a href="#l00022">gpio_fast_out_mcu.c:22</a></div></div>
 <div class="ttc" id="agpio__fast__out__mcu_8c_html_a618b0d089ac040bd855239d414877886"><div class="ttname"><a href="gpio__fast__out__mcu_8c.html#a618b0d089ac040bd855239d414877886">bundleA_gpios</a></div><div class="ttdeci">int bundleA_gpios[16]</div><div class="ttdef"><b>Definition</b> <a href="#l00023">gpio_fast_out_mcu.c:23</a></div></div>
 <div class="ttc" id="agpio__fast__out__mcu_8h_html"><div class="ttname"><a href="gpio__fast__out__mcu_8h.html">gpio_fast_out_mcu.h</a></div></div>

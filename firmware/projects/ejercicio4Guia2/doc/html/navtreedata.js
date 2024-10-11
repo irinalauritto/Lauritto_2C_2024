@@ -61,13 +61,13 @@ var NAVTREEINDEX =
 "config_2sdkconfig_8h.html#a772087c73549549017c23c40e6877635",
 "config_2sdkconfig_8h.html#abb0a384bff47a48c4554a0544ac7b74d",
 "config_2sdkconfig_8h.html#afa6c1620473b2e4c48db79eca51d6dcb",
-"group___b_l_e.html#gab13ed63d3b157b93f1e6d98e3d6a7b47",
-"group___b_u_z_z_e_r___m_e_l_o_d_i_e_s.html#gaf2f04d7f06f0872d9dacf39ef8174588",
-"group___m_p_u6050.html#ga004871ad77398075d79e9111989007dc",
-"group___m_p_u6050.html#ga71ae503e274e632ca60122e8d5b1c4f2",
-"group___m_p_u6050.html#gae82e96084d3a3859b6222f3b85b20c56",
-"ili9341_8c.html#a64425812670d1aa05fd620e20bfc3df7",
-"structhidd__le__env__t.html#a1cafcfc2034b035274780fd259018449"
+"group___b_l_e.html#gab3d8494d4d57a81a068b2b569cb0051e",
+"group___b_u_z_z_e_r___m_e_l_o_d_i_e_s.html#gaf3ea05115c18f0d0bb2d56ec93d825d4",
+"group___m_p_u6050.html#ga00fd786732f2a201425e5be22e97d866",
+"group___m_p_u6050.html#ga7256bd65a372fcc4f420e1796c1b579a",
+"group___m_p_u6050.html#gae83e3eb48f0803227db54291fdf0ea80",
+"ili9341_8c.html#a65c7150109661fbdca94d5cf724c307b",
+"structhidd__le__env__t.html#a56641432afbf2531cd72b0a1eddc6faf"
 ];
 
 var SYNCONMSG = 'pulsar para deshabilitar sincronización';

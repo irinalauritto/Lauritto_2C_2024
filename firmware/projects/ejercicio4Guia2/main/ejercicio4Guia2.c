@@ -57,8 +57,7 @@ TaskHandle_t conversionDATaskHandle = NULL;
 /*! @brief Variable para almacenar el valor de la conversión ADC. */
 uint16_t datoConversionAD;
 
-/*! @brief Índice para recorrer el buffer de la señal ECG. */
-uint8_t i = 0;
+
 /*==================[internal data definition]===============================*/
 /*!
  * @brief Buffer que contiene los datos de la señal ECG.
@@ -122,8 +121,10 @@ static void convertirAD(void *pvParameter){
     while(true){
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);    
         AnalogInputReadSingle(CH1, &datoConversionAD);
+        
+        UartSendString(UART_PC, ">ECG: ");
 		UartSendString(UART_PC, (char*)UartItoa(datoConversionAD, 10));
-		UartSendString(UART_PC, "\r");
+		UartSendString(UART_PC, "\r\n");
     }
 }
 
@@ -137,6 +138,7 @@ static void convertirAD(void *pvParameter){
  * @param pvParameter Parámetro de FreeRTOS (no utilizado).
  */
 static void convertirDA(void *pvParameter){
+    uint8_t i = 0;
     while(true){
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);  
 		if(i<231)
@@ -185,7 +187,7 @@ void app_main(void){
 // Inicialización del puerto serie
 	serial_config_t myUart = {
 		.port = UART_PC,
-		.baud_rate = 9600,
+		.baud_rate = 115200,
 		.func_p = NULL,
 		.param_p = NULL,
 	};

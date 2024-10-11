@@ -36,7 +36,7 @@
   <td id="projectalign">
    <div id="projectname">Ejercicio 4 - Guia 2<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">Ejercicio 4 de la guia de proyecto 2 de Electrónica Programable.</div>
+   <div id="projectbrief">Ejercicio 4  de la guia de proyecto 2 de Electrónica Programable.</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -334,20 +334,19 @@ $(function(){initNavTree('uart__mcu_8c_source.html',''); initResizable(true); })
 <div class="foldopen" id="foldopen00222" data-start="{" data-end="}">
 <div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="group___u_a_r_t.html#ga00c7e785d2874c52bab6e4dba88a5e23">  222</a></span>uint8_t* <a class="code hl_function" href="group___u_a_r_t.html#ga00c7e785d2874c52bab6e4dba88a5e23">UartItoa</a>(uint32_t val, uint8_t base){</div>
 <div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <span class="keyword">static</span> uint8_t buf[32] = {0};</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    uint32_t <a class="code hl_variable" href="ejercicio4_guia2_8c.html#af27e3188294c2df66d975b74a09c001d">i</a> = 30;</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    uint32_t i = 30;</div>
 <div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    <span class="keywordflow">if</span>(val == 0){</div>
 <div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        <span class="keywordflow">return</span> (uint8_t*)<span class="stringliteral">&quot;0&quot;</span>;</div>
 <div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    }<span class="keywordflow">else</span>{</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        <span class="keywordflow">for</span>(; val &amp;&amp; <a class="code hl_variable" href="ejercicio4_guia2_8c.html#af27e3188294c2df66d975b74a09c001d">i</a> ; --<a class="code hl_variable" href="ejercicio4_guia2_8c.html#af27e3188294c2df66d975b74a09c001d">i</a>, val /= base){</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>            buf[<a class="code hl_variable" href="ejercicio4_guia2_8c.html#af27e3188294c2df66d975b74a09c001d">i</a>] = <span class="stringliteral">&quot;0123456789abcdef&quot;</span>[val % base];</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        <span class="keywordflow">for</span>(; val &amp;&amp; i ; --i, val /= base){</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>            buf[i] = <span class="stringliteral">&quot;0123456789abcdef&quot;</span>[val % base];</div>
 <div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        }</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        <span class="keywordflow">return</span> &amp;buf[<a class="code hl_variable" href="ejercicio4_guia2_8c.html#af27e3188294c2df66d975b74a09c001d">i</a>+1];</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        <span class="keywordflow">return</span> &amp;buf[i+1];</div>
 <div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    }</div>
 <div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>}</div>
 </div>
 <div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
 <div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span><span class="comment">/*==================[end of file]============================================*/</span></div>
-<div class="ttc" id="aejercicio4_guia2_8c_html_af27e3188294c2df66d975b74a09c001d"><div class="ttname"><a href="ejercicio4_guia2_8c.html#af27e3188294c2df66d975b74a09c001d">i</a></div><div class="ttdeci">uint8_t i</div><div class="ttdoc">Índice para recorrer el buffer de la señal ECG.</div><div class="ttdef"><b>Definition</b> <a href="ejercicio4_guia2_8c_source.html#l00061">ejercicio4Guia2.c:61</a></div></div>
 <div class="ttc" id="agpio__mcu_8h_html"><div class="ttname"><a href="gpio__mcu_8h.html">gpio_mcu.h</a></div></div>
 <div class="ttc" id="agroup___u_a_r_t_html_ga00c7e785d2874c52bab6e4dba88a5e23"><div class="ttname"><a href="group___u_a_r_t.html#ga00c7e785d2874c52bab6e4dba88a5e23">UartItoa</a></div><div class="ttdeci">uint8_t * UartItoa(uint32_t val, uint8_t base)</div><div class="ttdoc">Convert a number to a String (char array ended with '\0')</div><div class="ttdef"><b>Definition</b> <a href="#l00222">uart_mcu.c:222</a></div></div>
 <div class="ttc" id="agroup___u_a_r_t_html_ga37f1b16880c3ca70ed2e543566d555d2"><div class="ttname"><a href="group___u_a_r_t.html#ga37f1b16880c3ca70ed2e543566d555d2">UartReadByte</a></div><div class="ttdeci">uint8_t UartReadByte(uart_mcu_port_t port, uint8_t *data)</div><div class="ttdoc">Read a single byte from serial port.</div><div class="ttdef"><b>Definition</b> <a href="#l00142">uart_mcu.c:142</a></div></div>
