@@ -60,6 +60,7 @@ static void Led3Task(void *pvParameter){
         printf("LED_3 OFF\n");
         LedOff(LED_3);
         vTaskDelay(CONFIG_BLINK_PERIOD_LED_3 / portTICK_PERIOD_MS);
+        
     }
 }
 /*==================[external functions definition]==========================*/
