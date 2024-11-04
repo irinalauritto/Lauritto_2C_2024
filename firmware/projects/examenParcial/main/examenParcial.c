@@ -32,6 +32,7 @@
 #include "switch.h"
 #include "timer_mcu.h"
 #include "gpio_mcu.h"
+#include "uart_mcu.h"
 /*==================[macros and definitions]=================================*/
 /*! @brief Define el retardo entre mediciones de distancia (en microsegundos). */
 #define RETARDO_EN_MEDICION 500000
@@ -43,6 +44,10 @@
 /*==================[internal data definition]===============================*/
 /*! @brief Handle para la tarea de medir distancia. */
 TaskHandle_t medirTaskHandle = NULL;
+
+/*! @brief Handle para la tarea que envia las notificaciones mediante UART. */
+TaskHandle_t notificarTaskHandle = NULL;
+
 
 /*! @brief Variable que almacena la distancia medida en centímetros. */
 uint16_t distancia;
@@ -126,7 +131,7 @@ void manejarAlarma(uint16_t dato){
 					ALARMA_05_SEGUNDO = false;
 				}
 				else{
-					if(distancia<300)
+					if(dato<300)
 					{
 						ALARMA_05_SEGUNDO = true;
 						ALARMA_1_SEGUNDO = false;
@@ -135,6 +140,27 @@ void manejarAlarma(uint16_t dato){
 	}
 }
 
+/*!
+ *  @brief Función que envia notificaciones a la UART.
+ * 
+ * Esta función se ejecuta siempre que se realicen mediciones.
+ * Envia notificaciones cuando un vehiculo se encuentra a una distancia menor a  5 metros del ciclista.
+ * 
+ * @param pvParameter Parámetro de FreeRTOS.
+ */
+static void notificar(void *pvParameter){
+	ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+	if (distancia>=300 && distancia<=500)
+	{
+		UartSendString(UART_CONNECTOR, "Precaucion, vehículo cerca.");
+	}
+	
+	if(distancia<300)
+	{
+		UartSendString(UART_CONNECTOR, "Peligro, vehículo cerca.");
+
+	}
+}
 
 /*!
  *  @brief Función que mide la distancia utilizando el sensor HC-SR04.
@@ -151,6 +177,8 @@ static void medir(void *pvParameter){
 		distancia = HcSr04ReadDistanceInCentimeters();
 		manejarLEDS(distancia);
 		manejarAlarma(distancia);
+		vTaskNotifyGiveFromISR(notificarTaskHandle, pdFALSE);
+
 
     }
 }
@@ -169,7 +197,7 @@ void app_main(void){
 	HcSr04Init(GPIO_3, GPIO_2);
 	LcdItsE0803Init();
 	gpioConf_t pin = {{GPIO_20, GPIO_OUTPUT}};
-	
+
 	// Inicialización de Timers
     timer_config_t timerMedir = {
         .timer = TIMER_A,
@@ -179,7 +207,17 @@ void app_main(void){
     };
 	TimerInit(&timerMedir);
 
+	//Inicialización UART
+	serial_config_t myUart = {
+		.port = UART_CONNECTOR,
+		.baud_rate = 115200,
+		.func_p = NULL,
+		.param_p = NULL,
+	};
+	UartInit(&myUart);
+
 	xTaskCreate(&medir, "Medir", 2048, NULL, 5, &medirTaskHandle);
+	xTaskCreate(&notificar, "Notificar", 2048, NULL, 5, &notificarTaskHandle);
 
 
 	TimerStart(timerMedir.timer);
