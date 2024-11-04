@@ -33,13 +33,15 @@
 #include "timer_mcu.h"
 #include "gpio_mcu.h"
 #include "uart_mcu.h"
+#include "analog_io_mcu.h"
+
 /*==================[macros and definitions]=================================*/
 /*! @brief Define el retardo entre mediciones de distancia (en microsegundos). */
 #define RETARDO_EN_MEDICION 500000
 
-#define RETARDO_ALARMA_PELIGRO 500
+#define RETARDO_ALARMA_PELIGRO 500000
 
-#define RETARDO_ALARMA_PRECAUCIÓN 1000
+#define RETARDO_ALARMA_PRECAUCIÓN 1000000
 
 /*==================[internal data definition]===============================*/
 /*! @brief Handle para la tarea de medir distancia. */
@@ -54,13 +56,30 @@ TaskHandle_t generarAlarmaPrecaucionTaskHandle = NULL;
 /*! @brief Handle para la tarea que genera la alarma de peligro . */
 TaskHandle_t generarAlarmaPeligroTaskHandle = NULL;
 
+/*! @brief Handle para la tarea que analiza caidas . */
+TaskHandle_t analizarCaidaTaskHandle = NULL;
+
 /*! @brief Variable que almacena la distancia medida en centímetros. */
 uint16_t distancia;
 
+/*! @brief Bandera para la alarma de Precaución. */
 bool ALARMA_1_SEGUNDO = false;
 
+/*! @brief Bandera para la alarma de Peligro. */
 bool ALARMA_05_SEGUNDO = false;
 
+/*! @brief Bandera para las caídas. */
+bool CAIDA = true;
+
+/*! @struct gpioConf_t
+ *  @brief Estructura para configurar los pines GPIO.
+ *  
+ *  @var gpioConf_t::pin
+ *  Número del pin GPIO.
+ *  
+ *  @var gpioConf_t::dir
+ *  Dirección del GPIO: '0' para IN, '1' para OUT.
+ */
 typedef struct
 {
 	gpio_t pin;			/*!< GPIO pin number */
@@ -167,6 +186,12 @@ static void notificar(void *pvParameter){
 			UartSendString(UART_CONNECTOR, "Peligro, vehículo cerca.");
 
 		}
+
+		if(CAIDA)
+		{
+			UartSendString(UART_CONNECTOR, "Caída detectada.");
+
+		}
 	}
 }
 
@@ -179,11 +204,9 @@ static void generarAlarmaPeligro(void *pvParameter)
 {
 	while(true)
 	{
+		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);   
 		if(ALARMA_05_SEGUNDO){
-			GPIOOn(miGPIO.pin);
-        	vTaskDelay(RETARDO_ALARMA_PELIGRO / portTICK_PERIOD_MS);
-			GPIOOff(miGPIO.pin);
-        	vTaskDelay(RETARDO_ALARMA_PELIGRO / portTICK_PERIOD_MS);
+			GPIOToggle(miGPIO.pin);
 		}
 	}
 }
@@ -196,21 +219,62 @@ static void generarAlarmaPeligro(void *pvParameter)
 static void generarAlarmaPrecaucion(void *pvParameter)
 {
 	while(true)
-	{
+	{  
+		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);   
 		if(ALARMA_1_SEGUNDO){
-			GPIOOn(miGPIO.pin);
-        	vTaskDelay(RETARDO_ALARMA_PRECAUCIÓN / portTICK_PERIOD_MS);
-			GPIOOff(miGPIO.pin);
-        	vTaskDelay(RETARDO_ALARMA_PRECAUCIÓN / portTICK_PERIOD_MS);
+			GPIOToggle(miGPIO.pin);
 		}
 	}
 }
 
 /*!
+ *  @brief Función que genera analiza si el ciclista se ha caído.
+ * 
+ * @param pvParameter Parámetro de FreeRTOS.
+ */
+static void analizarCaida(void *pvParameter){
+	while (true)
+	{
+		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);  
+		uint16_t medicionX;
+		uint16_t medicionY;
+		uint16_t medicionZ;
+
+		AnalogInputReadSingle(CH1, &medicionX);
+		AnalogInputReadSingle(CH2, &medicionY);		
+		AnalogInputReadSingle(CH3, &medicionZ);	
+
+		//Se realiza el casteo de las variables para evitar truncamientos en cálculos siguientes. 
+		//Ademas se divide por mil ya que estamos midiendo en mV y necesitamos las medidas en V.
+
+		medicionX = (float)medicionX/1000;
+		medicionY = (float)medicionY/1000;
+		medicionZ =(float)medicionZ/1000;
+
+		float GenX = (medicionX-1.65)/0.3;
+		float GenY = (medicionY-1.65)/0.3;
+		float GenZ = (medicionZ-1.65)/0.3;
+
+		float GTotal = GenX+GenY+GenZ;
+
+		if(GTotal>=4)
+		{
+			CAIDA = true;
+		}
+		else
+		{
+			CAIDA = false;	
+		}
+		  
+	}
+	
+}
+/*!
  *  @brief Función que mide la distancia utilizando el sensor HC-SR04.
  * 
  * Esta función se ejecuta continuamente mientras el sistema esté encendido
  * y actualiza la variable global "distancia" con el valor medido en centímetros.
+ * Además realiza llamadas a las tareas que se encargan del análisis de caidas y de las notificaciones por puerto serie.
  * 
  * @param pvParameter Parámetro de FreeRTOS.
  */
@@ -221,9 +285,8 @@ static void medir(void *pvParameter){
 		distancia = HcSr04ReadDistanceInCentimeters();
 		manejarLEDS(distancia);
 		manejarAlarma(distancia);
+		vTaskNotifyGiveFromISR(analizarCaidaTaskHandle, pdFALSE);
 		vTaskNotifyGiveFromISR(notificarTaskHandle, pdFALSE);
-
-
     }
 }
 
@@ -251,6 +314,22 @@ void app_main(void){
     };
 	TimerInit(&timerMedir);
 
+    timer_config_t timerPeligro = {
+        .timer = TIMER_B,
+        .period = RETARDO_ALARMA_PELIGRO,
+        .func_p = generarAlarmaPeligro,
+        .param_p = NULL
+    };
+    TimerInit(&timerPeligro);
+
+	  timer_config_t timerPrecaucion = {
+        .timer = TIMER_C,
+        .period = RETARDO_ALARMA_PRECAUCIÓN,
+        .func_p = generarAlarmaPrecaucion,
+        .param_p = NULL
+    };
+    TimerInit(&timerPrecaucion);
+
 	//Inicialización UART
 	serial_config_t myUart = {
 		.port = UART_CONNECTOR,
@@ -260,14 +339,41 @@ void app_main(void){
 	};
 	UartInit(&myUart);
 
+	// Inicialización del Convertidor AD
+	analog_input_config_t acelerometroX = {
+		.input = CH1,
+		.mode = ADC_SINGLE,
+	};
+	AnalogInputInit(&acelerometroX);
+	AnalogOutputInit();
+
+	analog_input_config_t acelerometroY = {
+		.input = CH2,
+		.mode = ADC_SINGLE,
+	};
+	AnalogInputInit(&acelerometroY);
+	AnalogOutputInit();
+
+	analog_input_config_t acelerometroZ = {
+		.input = CH3,
+		.mode = ADC_SINGLE,
+	};
+	AnalogInputInit(&acelerometroZ);
+	AnalogOutputInit();
+
 	//Creación de Funciones
 	xTaskCreate(&medir, "Medir", 2048, NULL, 5, &medirTaskHandle);
 	xTaskCreate(&notificar, "Notificar", 2048, NULL, 5, &notificarTaskHandle);
 	xTaskCreate(&generarAlarmaPeligro, "generarAlarmaPeligro", 2048, NULL, 5, &generarAlarmaPeligroTaskHandle);
 	xTaskCreate(&generarAlarmaPrecaucion, "generarAlarmaPrecaucion", 2048, NULL, 5, &generarAlarmaPrecaucionTaskHandle);
+	xTaskCreate(&analizarCaida, "analizarCaida", 2048, NULL, 5, &analizarCaidaTaskHandle);
+
 
 	//Inicialización del conteo de Timers
 	TimerStart(timerMedir.timer);
+	TimerStart(timerPrecaucion.timer);
+	TimerStart(timerPeligro.timer);
+	
 
 
 }
