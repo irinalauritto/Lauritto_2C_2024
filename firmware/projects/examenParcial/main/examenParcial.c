@@ -8,7 +8,15 @@
  *
  * |    Peripheral  |   ESP32   	|
  * |:--------------:|:--------------|
- * | 	PIN_X	 	| 	GPIO_X		|
+ * | 	GND	 		| 	GND			|
+ * |    +5V			| 		+5V		|
+ * |	X_Acelerometro|		CH1		|
+ * |	Y_Acelerometro|		CH2		|
+ * |	Z_Acelerometro|		CH3		|
+ * |	Tx			  |     GPIO_16	|
+ * |	Rx			| 		GPIO_17	|
+ * |	Buzzer		|		GPIO_20	|
+ * 
  *
  *
  * @section changelog Changelog
@@ -85,6 +93,9 @@ typedef struct
 	gpio_t pin;			/*!< GPIO pin number */
 	io_t dir;			/*!< GPIO direction '0' IN;  '1' OUT*/
 } gpioConf_t;
+
+gpioConf_t miGPIO = {{GPIO_20, GPIO_OUTPUT}};
+
 /*==================[internal functions declaration]=========================*/
 
 /*!
@@ -303,7 +314,6 @@ void app_main(void){
 	LedsInit();
 	HcSr04Init(GPIO_3, GPIO_2);
 	LcdItsE0803Init();
-	gpioConf_t miGPIO = {{GPIO_20, GPIO_OUTPUT}};
 
 	// Inicialización de Timers
     timer_config_t timerMedir = {
@@ -374,7 +384,5 @@ void app_main(void){
 	TimerStart(timerPrecaucion.timer);
 	TimerStart(timerPeligro.timer);
 	
-
-
 }
 /*==================[end of file]============================================*/
