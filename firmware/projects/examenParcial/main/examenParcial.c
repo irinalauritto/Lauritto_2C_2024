@@ -37,9 +37,9 @@
 /*! @brief Define el retardo entre mediciones de distancia (en microsegundos). */
 #define RETARDO_EN_MEDICION 500000
 
-#define RETARDO_ALARMA_PELIGRO
+#define RETARDO_ALARMA_PELIGRO 500
 
-#define RETARDO_ALARMA_PRECACIÓN
+#define RETARDO_ALARMA_PRECAUCIÓN 1000
 
 /*==================[internal data definition]===============================*/
 /*! @brief Handle para la tarea de medir distancia. */
@@ -48,6 +48,11 @@ TaskHandle_t medirTaskHandle = NULL;
 /*! @brief Handle para la tarea que envia las notificaciones mediante UART. */
 TaskHandle_t notificarTaskHandle = NULL;
 
+/*! @brief Handle para la tarea que genera la alarma de precaución . */
+TaskHandle_t generarAlarmaPrecaucionTaskHandle = NULL;
+
+/*! @brief Handle para la tarea que genera la alarma de peligro . */
+TaskHandle_t generarAlarmaPeligroTaskHandle = NULL;
 
 /*! @brief Variable que almacena la distancia medida en centímetros. */
 uint16_t distancia;
@@ -73,6 +78,7 @@ typedef struct
 void funcTimerMedir(void* param){
 	vTaskNotifyGiveFromISR(medirTaskHandle, pdFALSE);
 }
+
 /*!
  * @brief Función que controla el encendido y apagado de los LEDs según la distancia medida.
  * 
@@ -149,16 +155,54 @@ void manejarAlarma(uint16_t dato){
  * @param pvParameter Parámetro de FreeRTOS.
  */
 static void notificar(void *pvParameter){
-	ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
-	if (distancia>=300 && distancia<=500)
-	{
-		UartSendString(UART_CONNECTOR, "Precaucion, vehículo cerca.");
-	}
-	
-	if(distancia<300)
-	{
-		UartSendString(UART_CONNECTOR, "Peligro, vehículo cerca.");
+	while(true){
+		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+		if (distancia>=300 && distancia<=500)
+		{
+			UartSendString(UART_CONNECTOR, "Precaucion, vehículo cerca.");
+		}
+		
+		if(distancia<300)
+		{
+			UartSendString(UART_CONNECTOR, "Peligro, vehículo cerca.");
 
+		}
+	}
+}
+
+/*!
+ *  @brief Función que genera alarma de peligro.
+ * 
+ * @param pvParameter Parámetro de FreeRTOS.
+ */
+static void generarAlarmaPeligro(void *pvParameter)
+{
+	while(true)
+	{
+		if(ALARMA_05_SEGUNDO){
+			GPIOOn(miGPIO.pin);
+        	vTaskDelay(RETARDO_ALARMA_PELIGRO / portTICK_PERIOD_MS);
+			GPIOOff(miGPIO.pin);
+        	vTaskDelay(RETARDO_ALARMA_PELIGRO / portTICK_PERIOD_MS);
+		}
+	}
+}
+
+/*!
+ *  @brief Función que genera alarma de precaucion.
+ * 
+ * @param pvParameter Parámetro de FreeRTOS.
+ */
+static void generarAlarmaPrecaucion(void *pvParameter)
+{
+	while(true)
+	{
+		if(ALARMA_1_SEGUNDO){
+			GPIOOn(miGPIO.pin);
+        	vTaskDelay(RETARDO_ALARMA_PRECAUCIÓN / portTICK_PERIOD_MS);
+			GPIOOff(miGPIO.pin);
+        	vTaskDelay(RETARDO_ALARMA_PRECAUCIÓN / portTICK_PERIOD_MS);
+		}
 	}
 }
 
@@ -196,7 +240,7 @@ void app_main(void){
 	LedsInit();
 	HcSr04Init(GPIO_3, GPIO_2);
 	LcdItsE0803Init();
-	gpioConf_t pin = {{GPIO_20, GPIO_OUTPUT}};
+	gpioConf_t miGPIO = {{GPIO_20, GPIO_OUTPUT}};
 
 	// Inicialización de Timers
     timer_config_t timerMedir = {
@@ -216,10 +260,13 @@ void app_main(void){
 	};
 	UartInit(&myUart);
 
+	//Creación de Funciones
 	xTaskCreate(&medir, "Medir", 2048, NULL, 5, &medirTaskHandle);
 	xTaskCreate(&notificar, "Notificar", 2048, NULL, 5, &notificarTaskHandle);
+	xTaskCreate(&generarAlarmaPeligro, "generarAlarmaPeligro", 2048, NULL, 5, &generarAlarmaPeligroTaskHandle);
+	xTaskCreate(&generarAlarmaPrecaucion, "generarAlarmaPrecaucion", 2048, NULL, 5, &generarAlarmaPrecaucionTaskHandle);
 
-
+	//Inicialización del conteo de Timers
 	TimerStart(timerMedir.timer);
 
 
