@@ -1,0 +1,26 @@
+var examen_parcial_8c =
+[
+    [ "gpioConf_t", "structgpio_conf__t.html", "structgpio_conf__t" ],
+    [ "RETARDO_ALARMA_PELIGRO", "examen_parcial_8c.html#ac57b155d06d7c24907081ccc8801ed3a", null ],
+    [ "RETARDO_ALARMA_PRECAUCIÓN", "examen_parcial_8c.html#a921af0ad297de2c69b16f7b2d268470a", null ],
+    [ "RETARDO_EN_MEDICION", "examen_parcial_8c.html#a6bb43a3555a59e5d44355823c8c621dd", null ],
+    [ "analizarCaida", "examen_parcial_8c.html#ab5483dabee1476c6b0d1406b65fe10d0", null ],
+    [ "app_main", "examen_parcial_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70", null ],
+    [ "funcTimerMedir", "examen_parcial_8c.html#af5fc8b3c00c24706259c68657f69b2e2", null ],
+    [ "generarAlarmaPeligro", "examen_parcial_8c.html#a7111bf383b9b5e43743ba686416f5ea5", null ],
+    [ "generarAlarmaPrecaucion", "examen_parcial_8c.html#aaca73d218a632e48e5cf1c0fe628b187", null ],
+    [ "manejarAlarma", "examen_parcial_8c.html#a835080e447d2ed2b6a9e8452638d12c7", null ],
+    [ "manejarLEDS", "examen_parcial_8c.html#ae934e4d7471df37115d443b24eaa5c06", null ],
+    [ "medir", "examen_parcial_8c.html#a68f07a500e89474051e53c3033d62830", null ],
+    [ "notificar", "examen_parcial_8c.html#ae2d959c57869f6a384537aea503e05e3", null ],
+    [ "ALARMA_05_SEGUNDO", "examen_parcial_8c.html#ab87bdba9e2cba7808293c2e55cdcb0ab", null ],
+    [ "ALARMA_1_SEGUNDO", "examen_parcial_8c.html#ab76511b793bcef6cc780b9f14e60c59d", null ],
+    [ "analizarCaidaTaskHandle", "examen_parcial_8c.html#a19b7b5fb7ff91f1d08f5068403884e23", null ],
+    [ "CAIDA", "examen_parcial_8c.html#a02c16ffb5ccfda636f4e4b256d0cd006", null ],
+    [ "distancia", "examen_parcial_8c.html#aec40b15ff3098bdb2425eb4dc9c11a18", null ],
+    [ "generarAlarmaPeligroTaskHandle", "examen_parcial_8c.html#a1cdc3028635fc039305e2db818ba321c", null ],
+    [ "generarAlarmaPrecaucionTaskHandle", "examen_parcial_8c.html#a1b677630213cd0c7fec2fb2f702106e6", null ],
+    [ "medirTaskHandle", "examen_parcial_8c.html#a4c1eb594b9229430acfca622788009ec", null ],
+    [ "miGPIO", "examen_parcial_8c.html#a1a7ebec854678d576588768b27ce3e31", null ],
+    [ "notificarTaskHandle", "examen_parcial_8c.html#ae77707c58eb0f175023a2d1e32884e69", null ]
+];
